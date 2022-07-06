@@ -1,0 +1,79 @@
+## Deployment
+
+#- Image pull secret
+imagePullSecrets: ""
+
+#- Container name
+containerName: newrelic-exporter
+
+#- Image definition
+image:
+  registry: klinux
+  image: newrelic-exporter
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+#- Port used
+service:
+  port: "9126"
+
+#- Config definitions, you need to provide NewRelic API Key
+nrApiKey: ""
+nrServer: "https://api.newrelic.com"
+nrPeriod: 60
+nrTimeout: 15s
+nrAppsListCacheTime: 1m
+nrMetricNamesCacheTime: ""
+nrService: "applications"
+nrIncludeApps: ""
+nrUseOnlySummary: false
+nrIncludeMetricFilters: ""
+nrIncludeValues: ""
+nrTelemetryPath: "/metrics"
+nrDebug: false
+nrDebugProxyAddress: "https://localhost:8888"
+
+#- Extra envs
+extraEnvs: []
+# extraEnvs:
+#   - name: FOO
+#     valueFrom:
+#       secretKeyRef:
+#         key: FOO
+#         name: secret-resource
+
+#- Labels and Annotations Deployment
+labels: {}
+
+commonLabels: {}
+# scmhash: abc123
+# myLabel: aakkmd
+
+annotations: {}
+
+#- Pod Labels and Annotations
+podLabels: {}
+podAnnotations: {}
+  # prometheus.io/scrape: "true"
+  # prometheus.io/path: "/metrics"
+  # prometheus.io/port: "9126"
+
+#- Resources
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+#- Tolerations and NodeSelector
+tolerations: []
+  # - effect: NoSchedule
+  #   key: key
+  #   operator: Equal
+  #   value: value
+
+nodeSelector: {}
+#  cloud.google.com/gke-nodepool: node-pool-X
+
