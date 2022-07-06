@@ -1,4 +1,7 @@
 # New Relic Exporter
+
+> This code is based on original code: https://github.com/mrf/newrelic_exporter
+
 Prometheus exporter metrics for **New Relic** data.
 Requires a New Relic account.
 
