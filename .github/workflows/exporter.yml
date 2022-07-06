@@ -7,7 +7,7 @@ jobs:
   Build-Image:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Build image and push"
+      - run: echo "Build image and push for tag ${{ github.ref }}"
       
       - name: check repo code
         uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
             
       - name: build docker image
         run: |
-          docker build -t devopscora/newrelic-exporter:${{ steps.meta.outputs.tags }} .
+          docker build -t devopscora/newrelic-exporter:${{ github.ref }} .
       
       - run: echo "This job's status is ${{ job.status }}."
       
@@ -28,8 +28,8 @@ jobs:
       
       - name: push images
         run: |
-          docker tag devopscora/newrelic-exporter:${{ steps.meta.outputs.tags }} corabank/newrelic-exporter:latest
-          docker push devopscora/newrelic-exporter:${{ steps.meta.outputs.tags }}
+          docker tag devopscora/newrelic-exporter:${{ github.ref }} corabank/newrelic-exporter:latest
+          docker push devopscora/newrelic-exporter:${{ github.ref }}
           docker push devopscora/newrelic-exporter:latest
       
       - run: echo "This job's status is ${{ job.status }}."
