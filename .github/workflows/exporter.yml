@@ -1,4 +1,4 @@
-name: NewRelic Exporter Build
+name: newrelic exporter build
 on:
   push:
     tags:
