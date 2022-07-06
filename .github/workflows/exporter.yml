@@ -6,17 +6,25 @@ on:
 jobs:
   Build-Image:
     runs-on: ubuntu-latest
+    env:
+      SOURCE_TAG: ${{ github.ref }}
     steps:
-      - run: echo "Build image and push for tag ${{ github.ref }}"
-      
+
+      - name: prepare vars
+        run: |
+          set -xue
+          TARGET_VERSION=${SOURCE_TAG#*v}
+
+      - run: echo "Build image and push for tag ${TARGET_VERSION}"
+
       - name: check repo code
         uses: actions/checkout@v2
       
       - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
-            
+
       - name: build docker image
         run: |
-          docker build -t devopscora/newrelic-exporter:${{ github.ref }} .
+          docker build -t devopscora/newrelic-exporter:${TARGET_VERSION} .
       
       - run: echo "This job's status is ${{ job.status }}."
       
@@ -28,8 +36,8 @@ jobs:
       
       - name: push images
         run: |
-          docker tag devopscora/newrelic-exporter:${{ github.ref }} corabank/newrelic-exporter:latest
-          docker push devopscora/newrelic-exporter:${{ github.ref }}
+          docker tag devopscora/newrelic-exporter:${TARGET_VERSION} corabank/newrelic-exporter:latest
+          docker push devopscora/newrelic-exporter:${TARGET_VERSION}
           docker push devopscora/newrelic-exporter:latest
       
       - run: echo "This job's status is ${{ job.status }}."
