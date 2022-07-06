@@ -39,7 +39,7 @@ jobs:
       - name: push images
         run: |
           set -ue
-          docker tag devopscora/newrelic-exporter:v${TARGET_VERSION} corabank/newrelic-exporter:latest
+          docker tag devopscora/newrelic-exporter:v${TARGET_VERSION} devopscora/newrelic-exporter:latest
           docker push devopscora/newrelic-exporter:v${TARGET_VERSION}
           docker push devopscora/newrelic-exporter:latest
       
