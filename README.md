@@ -1,5 +1,5 @@
 # New Relic Exporter
-Prometheus exporter for New Relic data.
+Prometheus exporter metrics for **New Relic** data.
 Requires a New Relic account.
 
 ## Building and running
@@ -36,8 +36,8 @@ api.metric-names-cache-time | Length of time to cache names of metrics (not valu
 api.service                 | Define section of API to limit requests to (applications, mobile, etc)
 api.include-apps            | List of applications to query (optional). []
 api.use-only-summary        | Use only summary metrics, default false
-api.include-metric-filters  | List of metric groups to filter by to reduce number of API calls (optional). ["WebTransactionTotalTime", "Errors/all"]
-api.include-values          | List of values to filter by to reduce number of API calls (optional)
+api.include-metric-filters  | List of metric groups to filter by to reduce number of API calls (optional). Ex. ["WebTransactionTotalTime", "Errors/all"]
+api.include-values          | List of values to filter by to reduce number of API calls (optional). Ex. ["requests_per_minute", "errors_per_minute"]
 web.listen-address          | Address to listen on for web interface and telemetry.  Port defaults to 9126.
 web.telemetry-path          | Path under which to expose metrics.
 debug.proxy-address         | Proxy settings for debugging
