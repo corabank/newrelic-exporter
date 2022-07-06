@@ -9,13 +9,12 @@ jobs:
     env:
       SOURCE_TAG: ${{ github.ref }}
     steps:
-
       - name: prepare vars
         run: |
           set -xue
           TARGET_VERSION=${SOURCE_TAG#*v}
 
-      - run: echo "Build image and push for tag ${TARGET_VERSION}"
+      - run: echo "Build image and push"
 
       - name: check repo code
         uses: actions/checkout@v2
@@ -24,7 +23,8 @@ jobs:
 
       - name: build docker image
         run: |
-          docker build -t devopscora/newrelic-exporter:${TARGET_VERSION} .
+          set -ue
+          docker build -t devopscora/newrelic-exporter:v${TARGET_VERSION} .
       
       - run: echo "This job's status is ${{ job.status }}."
       
@@ -36,8 +36,9 @@ jobs:
       
       - name: push images
         run: |
-          docker tag devopscora/newrelic-exporter:${TARGET_VERSION} corabank/newrelic-exporter:latest
-          docker push devopscora/newrelic-exporter:${TARGET_VERSION}
+          set -ue
+          docker tag devopscora/newrelic-exporter:v${TARGET_VERSION} corabank/newrelic-exporter:latest
+          docker push devopscora/newrelic-exporter:v${TARGET_VERSION}
           docker push devopscora/newrelic-exporter:latest
       
       - run: echo "This job's status is ${{ job.status }}."
