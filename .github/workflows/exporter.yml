@@ -24,7 +24,7 @@ jobs:
       - name: build docker image
         run: |
           set -ue
-          docker build -t devopscora/newrelic-exporter:v${TARGET_VERSION} .
+          docker build -t devopscora/newrelic-exporter:${TARGET_VERSION} .
       
       - run: echo "This job's status is ${{ job.status }}."
       
@@ -37,8 +37,8 @@ jobs:
       - name: push images
         run: |
           set -ue
-          docker tag devopscora/newrelic-exporter:v${TARGET_VERSION} devopscora/newrelic-exporter:latest
-          docker push devopscora/newrelic-exporter:v${TARGET_VERSION}
+          docker tag devopscora/newrelic-exporter:${TARGET_VERSION} devopscora/newrelic-exporter:latest
+          docker push devopscora/newrelic-exporter:${TARGET_VERSION}
           docker push devopscora/newrelic-exporter:latest
       
       - run: echo "This job's status is ${{ job.status }}."
