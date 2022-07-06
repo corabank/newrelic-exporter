@@ -6,19 +6,15 @@ on:
 jobs:
   Build-Image:
     runs-on: ubuntu-latest
-    env:
-      SOURCE_TAG: ${{ github.ref }}
     steps:
+      - run: echo "Build image and push"
+      
       - name: prepare vars
         run: |
           set -xue
-          TARGET_VERSION=${SOURCE_TAG#*v}
+          TARGET_VERSION=${GITHUB_REF_NAME}
 
           echo "TARGET_VERSION=${TARGET_VERSION}" >> $GITHUB_ENV
-
-      - run: |
-          set -xue
-          echo "Build image and push ${GITHUB_REF_NAME}"
 
       - name: check repo code
         uses: actions/checkout@v2
