@@ -8,9 +8,9 @@ containerName: newrelic-exporter
 
 #- Image definition
 image:
-  registry: klinux
+  registry: corabank
   image: newrelic-exporter
-  tag: "1.0.0"
+  tag: "v1.0.0"
   pullPolicy: IfNotPresent
 
 #- Port used

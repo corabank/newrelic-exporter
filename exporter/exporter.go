@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/klinux/newrelic_exporter/config"
-	"github.com/klinux/newrelic_exporter/newrelic"
+	"github.com/corabank/newrelic_exporter/config"
+	"github.com/corabank/newrelic_exporter/newrelic"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/log"
 )

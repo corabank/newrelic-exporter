@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/antonholmquist/jason"
-	"github.com/klinux/newrelic_exporter/config"
+	"github.com/corabank/newrelic_exporter/config"
 	"github.com/prometheus/log"
 	"github.com/tomnomnom/linkheader"
 )

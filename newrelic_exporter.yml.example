@@ -14,6 +14,7 @@ api.timeout: 15s
 # Mandatory
 # This is part of API path in between of API version and app ID.
 # See NR API docs for details: https://rpm.newrelic.com/api/explore
+# Ex.: applications
 api.service: 
 
 # Time to cache application list. 0 by default
