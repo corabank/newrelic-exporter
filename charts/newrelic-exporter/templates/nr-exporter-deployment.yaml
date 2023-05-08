@@ -59,11 +59,11 @@ spec:
           readinessProbe:
             httpGet:
               port: {{ .Values.service.port }}
-              path: /metrics
+              path: /health
           livenessProbe:
             httpGet:
               port: {{ .Values.service.port }}
-              path: /metrics
+              path: /health
           volumeMounts:
             - name: config
               mountPath: /app/newrelic_exporter.yml
