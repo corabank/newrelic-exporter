@@ -8,7 +8,7 @@ containerName: newrelic-exporter
 
 #- Image definition
 image:
-  registry: devopscora
+  registry: coraopensource
   image: newrelic-exporter
   tag: "v1.0.0"
   pullPolicy: IfNotPresent
