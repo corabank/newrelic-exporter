@@ -10,7 +10,9 @@ Requires a New Relic account.
 ### Running in a container
 
     cp newrelic_exporter.yml.example newrelic_exporter.yml
-	docker run -p 9126:9126 -v $PWD/newrelic_exporter.yml:/app/newrelic_exporter.yml devopscora/newrelic-exporter
+	docker run -p 9126:9126 -v $PWD/newrelic_exporter.yml:/app/newrelic_exporter.yml coraopensource/newrelic-exporter
+
+> The path in docker hub is changed to coraopensource/newrelic-exporter
 
 ### From source
 
