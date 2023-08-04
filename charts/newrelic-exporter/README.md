@@ -6,7 +6,7 @@ Value                       | Description                                       
 ----------------------------|--------------------------------------------------------|-------------------
 imagePullSecrets            | Image Pull Secret                                      | ""
 containerName               | The name of the container                              | newrelic-exporter
-image.registry              | The image registry: default docker hub                 | devopscora
+image.registry              | The image registry: default docker hub                 | coraopensource
 image.image                 | The image name                                         | newrelic-exporter
 image.tag                   | The image tag                                          | v1.0.0
 image.pullPolicy            | The image policy                                       | IfNotPresent
